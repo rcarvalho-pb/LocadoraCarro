@@ -2,7 +2,7 @@ package view;
 
 public abstract class MenuAbstrato implements Menu {
   
-  private final String descricao;
+  protected final String descricao;
 
   public MenuAbstrato(String descricao){
     this.descricao = descricao;

@@ -20,7 +20,7 @@ public class AgenciaController {
     return agencia;
   }
 
-  private Boolean existeAgencia(String nome) {
+  public Boolean existeAgencia(String nome) {
     return agenciaRepository.buscarPeloID(nome) != null; 
   }
 }

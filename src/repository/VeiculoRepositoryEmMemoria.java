@@ -12,5 +12,12 @@ public class VeiculoRepositoryEmMemoria extends AbstractRepositoryEmMemoria<Veic
                     .filter(v -> v.getModelo().contains(modelo))
                     .toList();
   }
-  
+
+  @Override
+  public List<Veiculo> buscarVeiculoPelaPlaca(String placa) {
+    return entidades.stream()
+            .filter(v -> v.getID().contains(placa))
+            .toList();
+  }
+
 }

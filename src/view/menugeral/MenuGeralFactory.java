@@ -1,13 +1,12 @@
 package view.menugeral;
 
+import view.Menu;
 import view.MenuComSubmenus;
 import view.MenuFactory;
 import view.agencia.MenuAgenciaFactory;
 import view.aluguel.MenuAluguelFactory;
 import view.cliente.MenuClienteFactory;
-import view.devolucao.MenuDevolucaoFactory;
-import view.veiculo.MenuVeiculoFactory;
-import view.Menu;
+import view.veiculoview.MenuVeiculoFactory;
 
 public class MenuGeralFactory implements MenuFactory {
 
@@ -15,14 +14,12 @@ public class MenuGeralFactory implements MenuFactory {
   private final MenuVeiculoFactory menuVeiculoFactory;
   private final MenuAgenciaFactory menuAgenciaFactory;
   private final MenuAluguelFactory menuAluguelFactory;
-  private final MenuDevolucaoFactory menuDevolucaoFactory;
 
-  public MenuGeralFactory(MenuClienteFactory menuClienteFactory, MenuVeiculoFactory menuVeiculoFactory, MenuAgenciaFactory menuAgenciaFactory, MenuAluguelFactory menuAluguelFactory, MenuDevolucaoFactory menuDevolucaoFactory){
+  public MenuGeralFactory(MenuClienteFactory menuClienteFactory, MenuVeiculoFactory menuVeiculoFactory, MenuAgenciaFactory menuAgenciaFactory, MenuAluguelFactory menuAluguelFactory){
     this.menuClienteFactory = menuClienteFactory;
     this.menuVeiculoFactory = menuVeiculoFactory;
     this.menuAgenciaFactory = menuAgenciaFactory;
     this.menuAluguelFactory = menuAluguelFactory;
-    this.menuDevolucaoFactory = menuDevolucaoFactory;
   }
 
   @Override
@@ -32,17 +29,17 @@ public class MenuGeralFactory implements MenuFactory {
     Menu menuSair = new MenuSair();
     menuGeral.adicionarSubmenus(menuSair);
 
-    Menu menuCliente =  new MenuClienteFactory().create();
-    menuGeral.adicionarSubmenus(menuCliente);
+    Menu menuVeiculos = menuVeiculoFactory.create();
+    menuGeral.adicionarSubmenus(menuVeiculos);
 
-    Menu menuVeiculo = new MenuVeiculoFactory().create();
-    menuGeral.adicionarSubmenus(menuVeiculo);
+    Menu menuAgencias = menuAgenciaFactory.create();
+    menuGeral.adicionarSubmenus(menuAgencias);
 
-    Menu menuAgencia = new MenuAgenciaFactory().create();
-    menuGeral.adicionarSubmenus(menuAgencia);
+    Menu menuClientes = menuClienteFactory.create();
+    menuGeral.adicionarSubmenus(menuClientes);
 
-    Menu menuAluguel = new MenuAluguelFactory().create();
-    menuGeral.adicionarSubmenus(menuAluguel);
+    Menu menuAlugueis = menuAluguelFactory.create();
+    menuGeral.adicionarSubmenus(menuAlugueis);
 
     return menuGeral;
   }

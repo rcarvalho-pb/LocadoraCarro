@@ -28,7 +28,8 @@ public abstract class MenuComSubmenus extends MenuAbstrato {
       menu.exibir();
 
     }
-    System.out.println("0. Sair");
+    System.out.print("0. ");
+    submenus.get("0").exibir();
   }
 
   private Menu selecionarSubmenu(){
