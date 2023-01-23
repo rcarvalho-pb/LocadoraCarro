@@ -1,15 +1,14 @@
 package repository;
 
-import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import model.Entidade;
 
-public abstract class AbstractRepository<T extends Entidade> implements GenericRepository<T> {
+public abstract class AbstractRepositoryEmMemoria<T extends Entidade> implements GenericRepository<T> {
 
-  List<T> entidades = new ArrayList<>();
+  protected List<T> entidades = new ArrayList<>();
 
   @Override
   public boolean salvar(T entidade) {
@@ -32,14 +31,19 @@ public abstract class AbstractRepository<T extends Entidade> implements GenericR
 
   @Override
   public T buscarPeloID(String identificador) {
-    return entidades.get(Integer.valueOf(identificador));
+    return entidades.stream()
+                    .filter(e -> e.getID().equals(identificador))
+                    .findAny()
+                    .orElse(null);
   }
 
   @Override
   public List<T> listarTodos() {
-    return (entidades);
+    return Collections.unmodifiableList(entidades);
   }
 
-  
+  public List<T> getEntidades(){
+    return Collections.unmodifiableList(entidades);
+  }
   
 }
