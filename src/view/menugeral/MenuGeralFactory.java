@@ -44,9 +44,6 @@ public class MenuGeralFactory implements MenuFactory {
     Menu menuAluguel = new MenuAluguelFactory().create();
     menuGeral.adicionarSubmenus(menuAluguel);
 
-    Menu menuDevolucao = new MenuDevolucaoFactory().create();
-    menuGeral.adicionarSubmenus(menuDevolucao);
-
     return menuGeral;
   }
   

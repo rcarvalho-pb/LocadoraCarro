@@ -6,6 +6,6 @@ import model.Agencia;
 
 public interface AgenciaRepository extends GenericRepository<Agencia> {
 
-  List<Agencia> buscarPeloNomeOuLogradouro(String nomeOuLogradouro);
+  List<Agencia> buscarPeloLogradouro(String nomeOuLogradouro);
   
 }

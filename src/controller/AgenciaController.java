@@ -1,7 +1,7 @@
 package controller;
 
+import exceptions.RegistroEmDuplicidadeException;
 import model.Agencia;
-import repository.AbstractRepositoryEmMemoria;
 import repository.AgenciaRepository;
 
 public class AgenciaController {
@@ -11,4 +11,16 @@ public class AgenciaController {
   public AgenciaController(AgenciaRepository agenciaRepository) {
     this.agenciaRepository = agenciaRepository;
   }  
+
+  public Agencia criarAgencia(String nome, String logradouro) {
+    if (existeAgencia(nome)) throw new RegistroEmDuplicidadeException("AGENCIA", nome);
+
+    Agencia agencia = new Agencia(nome, logradouro);
+    agenciaRepository.salvar(agencia);
+    return agencia;
+  }
+
+  private Boolean existeAgencia(String nome) {
+    return agenciaRepository.buscarPeloID(nome) != null; 
+  }
 }

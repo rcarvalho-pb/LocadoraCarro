@@ -7,9 +7,9 @@ import model.Agencia;
 public class AgenciaRepositoryEmMemoria extends AbstractRepositoryEmMemoria<Agencia> implements AgenciaRepository {
 
   @Override
-  public List<Agencia> buscarPeloNomeOuLogradouro(String nomeOuLogradouro) {
+  public List<Agencia> buscarPeloLogradouro(String logradouro) {
       return entidades.stream()
-                      .filter(agencia -> agencia.getNome().contains(nomeOuLogradouro)  || agencia.getLogradouro().contains(nomeOuLogradouro))
+                      .filter(agencia -> agencia.getLogradouro().contains(logradouro))
                       .toList();
     
   }
