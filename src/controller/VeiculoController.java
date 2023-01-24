@@ -6,6 +6,7 @@ import model.veiculo.VeiculoCaminhao;
 import model.veiculo.VeiculoCarro;
 import model.veiculo.VeiculoMoto;
 import repository.VeiculoRepository;
+import util.CapturadorDeEntrada;
 
 import java.util.List;
 
@@ -22,7 +23,6 @@ public class VeiculoController<T extends Veiculo> {
 
     Veiculo veiculo = new VeiculoCarro(modelo, fabricante, cor, placa);
     veiculoRepository.salvar(veiculo);
-
     return veiculo;
   }
 
@@ -31,9 +31,6 @@ public class VeiculoController<T extends Veiculo> {
 
     Veiculo veiculo = new VeiculoMoto(modelo, fabricante, cor, placa);
     veiculoRepository.salvar(veiculo);
-    System.out.println("Nova Moto cadastrada. \nMoto: ");
-    System.out.println(veiculo);
-
     return veiculo;
   }
 
@@ -42,9 +39,6 @@ public class VeiculoController<T extends Veiculo> {
 
     Veiculo veiculo = new VeiculoCaminhao(modelo, fabricante, cor, placa);
     veiculoRepository.salvar(veiculo);
-    System.out.println("Novo Caminhão cadastrado. \nCaminhão: ");
-    System.out.println(veiculo);
-
     return veiculo;
   }
 
@@ -52,12 +46,17 @@ public class VeiculoController<T extends Veiculo> {
     return veiculoRepository.buscarPeloID(placa) != null;
   }
 
-  public Veiculo buscarVeiculoPelaPlaca(String placa){
-    List<Veiculo> veiculosBuscadosPelaPlaca = veiculoRepository.buscarVeiculoPelaPlaca(placa);
-
+  public List<Veiculo> buscarVeiculoPeloModelo(String placa){
+    return veiculoRepository.buscarVeiculoPeloModelo(placa);
   }
 
   public Veiculo selecionarVeiculo(List<Veiculo> veiculos) {
-
+    veiculos.forEach(System.out::println);
+    String placa = CapturadorDeEntrada.capturarString("Informe a placa do veiculo: ");
+    return veiculos.stream()
+                  .filter(v -> v.getID().equals(placa))
+                  .findAny()
+                  .orElse(null);
   }
+  
 }

@@ -2,11 +2,12 @@ package view.veiculoview;
 
 import controller.VeiculoController;
 import model.veiculo.Veiculo;
+import model.veiculo.VeiculoCaminhao;
 import util.CapturadorDeEntrada;
 import view.MenuAbstrato;
 
 public class MenuCadastrarCaminhao extends MenuAbstrato {
-    private final VeiculoController veiculoController;
+    private final VeiculoController<VeiculoCaminhao> veiculoController;
     public MenuCadastrarCaminhao(VeiculoController veiculoController) {
         super("CADASTRAR NOVO CARRO");
         this.veiculoController = veiculoController;

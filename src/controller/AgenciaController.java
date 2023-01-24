@@ -21,6 +21,6 @@ public class AgenciaController {
   }
 
   public Boolean existeAgencia(String nome) {
-    return agenciaRepository.buscarPeloID(nome) != null; 
+    return agenciaRepository.buscarPeloID(nome) != null;
   }
 }

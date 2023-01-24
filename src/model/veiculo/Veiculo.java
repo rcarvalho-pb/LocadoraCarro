@@ -25,12 +25,24 @@ public abstract class Veiculo implements Entidade {
     return modelo;
   }
 
+  public void alterarModelo(String novoModelo){
+    this.modelo = novoModelo;
+  }
+
   public String getFabricante() {
     return fabricante;
   }
 
+  public void alterarFabricante(String novoFabricante){
+    fabricante = novoFabricante;
+  }
+
   public String getCor() {
     return cor;
+  }
+
+  public void alterarCor(String novaCor) {
+    cor = novaCor;
   }
 
   public Boolean alugarVeiculo() {

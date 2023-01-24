@@ -7,7 +7,7 @@ import model.veiculo.Veiculo;
 public class VeiculoRepositoryEmMemoria extends AbstractRepositoryEmMemoria<Veiculo> implements VeiculoRepository {
 
   @Override
-  public List<Veiculo> buscarVeiculoPorModelo(String modelo) {
+  public List<Veiculo> buscarVeiculoPeloModelo(String modelo) {
     return entidades.stream()
                     .filter(v -> v.getModelo().contains(modelo))
                     .toList();
