@@ -20,14 +20,21 @@ public class MenuVeiculoFactory implements MenuFactory {
     Menu voltar = new MenuVoltar();
     menuVeiculo.adicionarSubmenus(voltar);
 
+    MenuComSubmenus menuCadastrarVeiculo = new MenuCadastrarVeiculo();
     Menu cadastrarCarro = new MenuCadastrarCarro(veiculoController);
-    menuVeiculo.adicionarSubmenus(cadastrarCarro);
-
+    menuCadastrarVeiculo.adicionarSubmenus(cadastrarCarro);
     Menu cadastrarMoto = new MenuCadastrarMoto(veiculoController);
-    menuVeiculo.adicionarSubmenus(cadastrarMoto);
-
+    menuCadastrarVeiculo.adicionarSubmenus(cadastrarMoto);
     Menu cadastrarCaminhao = new MenuCadastrarCaminhao(veiculoController);
-    menuVeiculo.adicionarSubmenus(cadastrarCaminhao);
+    menuCadastrarVeiculo.adicionarSubmenus(cadastrarCaminhao);
+    menuVeiculo.adicionarSubmenus(menuCadastrarVeiculo);
+    
+    Menu alterarVeiculo = new MenuAlterarVeiculo(veiculoController);
+    menuVeiculo.adicionarSubmenus(alterarVeiculo);
+
+    Menu buscarVeiculoPeloNome = new MenuBuscarVeiculoPeloNome(veiculoController);
+    menuVeiculo.adicionarSubmenus(buscarVeiculoPeloNome);
+
     return menuVeiculo;
   }
   

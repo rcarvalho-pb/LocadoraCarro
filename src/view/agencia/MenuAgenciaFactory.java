@@ -18,13 +18,18 @@ public class MenuAgenciaFactory implements MenuFactory {
 
   @Override
   public Menu create() {
-    MenuComSubmenus menuAgencia = new MenuAgencia("MENU AGENCIA");
+    MenuComSubmenus menuAgencia = new MenuAgencia();
 
     Menu voltar = new MenuVoltar();
     menuAgencia.adicionarSubmenus(voltar);
 
-    MenuAbstrato menuCriarAgencia = new MenuAdicionarAgencia(agenciaController);
-    menuAgencia.adicionarSubmenus(menuCriarAgencia);
+    MenuAbstrato menuAdicionarAgencia = new MenuAdicionarAgencia(agenciaController);
+    menuAgencia.adicionarSubmenus(menuAdicionarAgencia);
+
+    Menu menuBuscarAgenciaPeloNome = new MenuBuscarAgenciaPeloNome(agenciaController);
+    menuAgencia.adicionarSubmenus(menuBuscarAgenciaPeloNome);
+
+
 
     return menuAgencia;
   }

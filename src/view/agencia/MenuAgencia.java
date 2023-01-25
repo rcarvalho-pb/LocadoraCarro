@@ -4,8 +4,8 @@ import view.MenuComSubmenus;
 
 public class MenuAgencia extends MenuComSubmenus {
 
-  public MenuAgencia(String descricao) {
-    super(descricao);
+  public MenuAgencia() {
+    super("MENU AGENCIA");
   }
 
 }

@@ -9,7 +9,7 @@ public class ClienteRepositoryEmMemoria extends AbstractRepositoryEmMemoria<Clie
   @Override
   public List<Cliente> buscarClientePeloNome(String nome) {
     return entidades.stream()
-                    .filter(c -> c.getNome().contains(nome))
+                    .filter(c -> c.getID().contains(nome))
                     .toList();
   }
   

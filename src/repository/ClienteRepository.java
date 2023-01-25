@@ -6,5 +6,5 @@ import model.cliente.Cliente;
 
 public interface ClienteRepository extends GenericRepository<Cliente> {
   
-  List<Cliente> buscarClientePeloNome(String nome);
+  List<Cliente> buscarClientePeloNome(String id);
 }
