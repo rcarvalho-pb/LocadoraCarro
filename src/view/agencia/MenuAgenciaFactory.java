@@ -26,7 +26,7 @@ public class MenuAgenciaFactory implements MenuFactory {
     MenuAbstrato menuAdicionarAgencia = new MenuAdicionarAgencia(agenciaController);
     menuAgencia.adicionarSubmenus(menuAdicionarAgencia);
 
-    Menu menuBuscarAgenciaPeloNome = new MenuBuscarAgenciaPeloNome(agenciaController);
+    Menu menuBuscarAgenciaPeloNome = new MenuBuscarAgenciaPeloNomeOuLogradouro(agenciaController);
     menuAgencia.adicionarSubmenus(menuBuscarAgenciaPeloNome);
 
 
